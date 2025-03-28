@@ -1,6 +1,5 @@
 package com.github.kmu_wink.yeogichadae2.api;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 
@@ -26,4 +25,9 @@ public class ApiResponse<T> {
     public static ApiResponse<Map<String, String>> error(HttpStatus status, String message) {
         return new ApiResponse<>(status.value(), message, null);
     }
+
+    public static ApiResponse<Map<String, String>> error(ApiException exception) {
+        return error(exception.getStatus(), exception.getMessage());
+    }
+
 }
