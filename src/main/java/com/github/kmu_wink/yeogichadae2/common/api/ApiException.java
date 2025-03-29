@@ -1,4 +1,4 @@
-package com.github.kmu_wink.yeogichadae2.api;
+package com.github.kmu_wink.yeogichadae2.common.api;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

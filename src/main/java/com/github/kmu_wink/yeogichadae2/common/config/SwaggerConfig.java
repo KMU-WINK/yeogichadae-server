@@ -1,4 +1,4 @@
-package com.github.kmu_wink.yeogichadae2.config;
+package com.github.kmu_wink.yeogichadae2.common.config;
 
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.Components;

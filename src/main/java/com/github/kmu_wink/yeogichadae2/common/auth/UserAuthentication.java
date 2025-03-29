@@ -1,4 +1,4 @@
-package com.github.kmu_wink.yeogichadae2.auth;
+package com.github.kmu_wink.yeogichadae2.common.auth;
 
 import com.github.kmu_wink.yeogichadae2.domain.user.entity.User;
 import lombok.Getter;

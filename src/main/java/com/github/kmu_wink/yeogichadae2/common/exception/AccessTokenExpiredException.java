@@ -1,6 +1,6 @@
-package com.github.kmu_wink.yeogichadae2.exception;
+package com.github.kmu_wink.yeogichadae2.common.exception;
 
-import com.github.kmu_wink.yeogichadae2.api.ApiException;
+import com.github.kmu_wink.yeogichadae2.common.api.ApiException;
 import org.springframework.http.HttpStatus;
 
 public class AccessTokenExpiredException extends ApiException {

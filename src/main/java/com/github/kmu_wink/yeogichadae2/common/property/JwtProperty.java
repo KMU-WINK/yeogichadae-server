@@ -1,4 +1,4 @@
-package com.github.kmu_wink.yeogichadae2.property;
+package com.github.kmu_wink.yeogichadae2.common.property;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

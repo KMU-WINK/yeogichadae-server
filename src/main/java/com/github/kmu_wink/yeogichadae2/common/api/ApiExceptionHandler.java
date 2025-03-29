@@ -1,10 +1,8 @@
-package com.github.kmu_wink.yeogichadae2.api;
+package com.github.kmu_wink.yeogichadae2.common.api;
 
-import com.github.kmu_wink.yeogichadae2.exception.AccessTokenExpiredException;
-import com.github.kmu_wink.yeogichadae2.exception.AuthenticationFailException;
+import com.github.kmu_wink.yeogichadae2.common.exception.AccessTokenExpiredException;
+import com.github.kmu_wink.yeogichadae2.common.exception.AuthenticationFailException;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
