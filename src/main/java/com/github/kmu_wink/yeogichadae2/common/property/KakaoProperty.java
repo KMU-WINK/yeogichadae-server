@@ -1,6 +1,5 @@
 package com.github.kmu_wink.yeogichadae2.common.property;
 
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -8,15 +7,12 @@ import org.springframework.context.annotation.Configuration;
 
 @Data
 @Configuration
-@ConfigurationProperties(prefix = "app.jwt")
-public class JwtProperty {
+@ConfigurationProperties(prefix = "app.kakao")
+public class KakaoProperty {
 
     @NotBlank
-    private String key;
+    private String clientId;
 
-    @Min(1)
-    private int accessTokenExpirationHours;
-
-    @Min(1)
-    private int refreshTokenExpirationHours;
+    @NotBlank
+    private String redirectUrl;
 }
