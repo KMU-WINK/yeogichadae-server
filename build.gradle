@@ -31,7 +31,8 @@ dependencies {
     implementation 'com.auth0:java-jwt:4.4.0'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'com.konghq:unirest-java-core:4.4.5'
-    implementation "com.konghq:unirest-objectmapper-jackson:4.2.9"
+    implementation 'com.konghq:unirest-objectmapper-jackson:4.2.9'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
