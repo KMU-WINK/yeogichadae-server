@@ -2,6 +2,7 @@ package com.github.kmu_wink.yeogichadae2.domain.auth.service;
 
 import com.github.kmu_wink.yeogichadae2.common.auth.JwtUtil;
 import com.github.kmu_wink.yeogichadae2.common.exception.AuthenticationFailException;
+import com.github.kmu_wink.yeogichadae2.common.exception.KakaoAccessTokenException;
 import com.github.kmu_wink.yeogichadae2.common.property.KakaoProperty;
 import com.github.kmu_wink.yeogichadae2.domain.auth.dto.LoginRequest;
 import com.github.kmu_wink.yeogichadae2.domain.auth.dto.LoginResponse;
@@ -14,6 +15,7 @@ import jakarta.validation.Valid;
 import kong.unirest.core.ContentType;
 import kong.unirest.core.Unirest;
 import kong.unirest.core.UnirestInstance;
+import kong.unirest.core.json.JSONObject;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.github.kmu_wink.yeogichadae2.common.exception.InvalidRefreshTokenException;
@@ -67,7 +69,7 @@ public class AuthService {
 
     private String getKakaoAccessToken(String token) {
         try (UnirestInstance instance = Unirest.spawnInstance()) {
-            return instance.post("https://kauth.kakao.com/oauth/token")
+            JSONObject response = instance.post("https://kauth.kakao.com/oauth/token")
                     .contentType(ContentType.APPLICATION_FORM_URLENCODED)
                     .field("grant_type", "authorization_code")
                     .field("client_id", kakaoProperty.getClientId())
@@ -75,8 +77,10 @@ public class AuthService {
                     .field("code", token)
                     .asJson()
                     .getBody()
-                    .getObject()
-                    .getString("access_token");
+                    .getObject();
+
+            if (response.has("error_code")) throw new KakaoAccessTokenException(response.getString("error_code"));
+            return response.getString("access_token");
         }
     }
 
